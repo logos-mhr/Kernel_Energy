@@ -213,6 +213,7 @@ void PCG::initialize(int Ntemp, int NNZtemp, double* Atemp, double* Btemp, int* 
 		std::cout << "CUBLAS对象实例化出错" << std::endl;
 		getchar();
 	}
+	cublasSetPointerMode(handle, CUBLAS_POINTER_MODE_DEVICE);
 }
 
 PCG::PCG(int Ntemp, int NNZtemp, double* Atemp, double* Btemp, int* IAtemp, int* JAtemp, constuctor_type TYPE) { //IAtemp 最后一项必须为总非零点数目
