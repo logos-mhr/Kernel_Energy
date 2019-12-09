@@ -116,7 +116,7 @@ namespace Kernel_Energy {
 			cudaThreadSynchronize();
 		}
 
-		void calc_hes(int hes_cal_index_size = 0) {		//传入生成矩阵的kernel的size大小
+		void calc_hes(int hes_cal_index_size = 0) {		//浼犲叆鐢熸垚鐭╅樀鐨刱ernel鐨剆ize澶у皬
 			if (hes_cal_index_size == 0) hes_cal_index_size = size;
 			hes << <32 * numSMs, 256 >> > (dev_x, dev_pos, dev_hes_val, hes_cal_index_size);
 			cudaThreadSynchronize();

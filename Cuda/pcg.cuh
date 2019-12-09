@@ -169,7 +169,7 @@ PCG::PCG(int Ntemp, int NNZtemp, thrust::pair<int, int>* coo, double* hes_val, d
 	initialize(Ntemp, NNZtemp, hes_val, right_hand, csr, pos_y, TYPE);
 }
 
-void PCG::initialize(int Ntemp, int NNZtemp, double* Atemp, double* Btemp, int* IAtemp, int* JAtemp, constuctor_type TYPE) { //IAtemp ×îºóÒ»Ïî±ØĞëÎª×Ü·ÇÁãµãÊıÄ¿
+void PCG::initialize(int Ntemp, int NNZtemp, double* Atemp, double* Btemp, int* IAtemp, int* JAtemp, constuctor_type TYPE) { //IAtemp æœ€åä¸€é¡¹å¿…é¡»ä¸ºæ€»éé›¶ç‚¹æ•°ç›®
 	readIAandJA(Ntemp, NNZtemp, IAtemp, JAtemp, TYPE);
 	N = Ntemp;
 	NNZ = NNZtemp;
@@ -210,16 +210,16 @@ void PCG::initialize(int Ntemp, int NNZtemp, double* Atemp, double* Btemp, int* 
 	status = cublasCreate(&handle);
 	if (status != CUBLAS_STATUS_SUCCESS)
 	{
-		std::cout << "CUBLAS¶ÔÏóÊµÀı»¯³ö´í" << std::endl;
+		std::cout << "CUBLASå¯¹è±¡å®ä¾‹åŒ–å‡ºé”™" << std::endl;
 		getchar();
 	}
 }
 
-PCG::PCG(int Ntemp, int NNZtemp, double* Atemp, double* Btemp, int* IAtemp, int* JAtemp, constuctor_type TYPE) { //IAtemp ×îºóÒ»Ïî±ØĞëÎª×Ü·ÇÁãµãÊıÄ¿
+PCG::PCG(int Ntemp, int NNZtemp, double* Atemp, double* Btemp, int* IAtemp, int* JAtemp, constuctor_type TYPE) { //IAtemp æœ€åä¸€é¡¹å¿…é¡»ä¸ºæ€»éé›¶ç‚¹æ•°ç›®
 	initialize(Ntemp, NNZtemp, Atemp, Btemp, IAtemp, JAtemp, TYPE);
 }
 
-//PCG::PCG(int Ntemp, int NNZtemp, double* Atemp, double* Btemp, int* IAtemp, int* JAtemp, constuctor_type TYPE) { //IAtemp ×îºóÒ»Ïî±ØĞëÎª×Ü·ÇÁãµãÊıÄ¿
+//PCG::PCG(int Ntemp, int NNZtemp, double* Atemp, double* Btemp, int* IAtemp, int* JAtemp, constuctor_type TYPE) { //IAtemp æœ€åä¸€é¡¹å¿…é¡»ä¸ºæ€»éé›¶ç‚¹æ•°ç›®
 //	readIAandJA(Ntemp, NNZtemp, IAtemp, JAtemp, TYPE);
 //	N = Ntemp;
 //	NNZ = NNZtemp;
@@ -260,7 +260,7 @@ PCG::PCG(int Ntemp, int NNZtemp, double* Atemp, double* Btemp, int* IAtemp, int*
 //	status = cublasCreate(&handle);
 //	if (status != CUBLAS_STATUS_SUCCESS)
 //	{
-//		std::cout << "CUBLAS¶ÔÏóÊµÀı»¯³ö´í" << std::endl;
+//		std::cout << "CUBLASå¯¹è±¡å®ä¾‹åŒ–å‡ºé”™" << std::endl;
 //		getchar();
 //	}
 //}
@@ -300,7 +300,7 @@ void PCG::update_hes(double* Atemp, double* Btemp, constuctor_type TYPE) {
 	status = cublasCreate(&handle);
 	if (status != CUBLAS_STATUS_SUCCESS)
 	{
-		std::cout << "CUBLAS¶ÔÏóÊµÀı»¯³ö´í" << std::endl;
+		std::cout << "CUBLASå¯¹è±¡å®ä¾‹åŒ–å‡ºé”™" << std::endl;
 		getchar();
 	}
 }
